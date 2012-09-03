@@ -1,54 +1,42 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package edu.wctc.distjava.model;
 
 import java.util.ArrayList;
 import java.util.List;
 
 /**
- *
- * @author Kevin
- */
+*
+* The OrderConfirmation class is a Model layer class that receives a List 
+* containing all of the possible menu choices from the Controller layer.  The 
+* List received from the Controller is stripped of nulls (non-selected items) 
+* and a new List, containing only the items selected by the customer, is 
+* created.
+*<p>
+* @author Kevin Nangle, knangle@my.wctc.edu
+* @version 2
+*/
 public class OrderConfirmation {
-    private String item1, item2, item3, item4, item5, item6;
-
-    public OrderConfirmation(String one, String two, String three, String four, 
-                            String five, String six) {
-    item1 = one;
-    item2 = two;
-    item3 = three;
-    item4 = four;
-    item5 = five;
-    item6 = six;
-    }
+    
+    private List allItems = new ArrayList(); 
+    
+    //Constructor accepts a List from the Controller 
+      public OrderConfirmation(List allItems) {
+            this.allItems=allItems;
+      }
     
      /**
-     * Confirms patron's order.
+     * Confirm patron's order.
      * 
      */
-    public List getChoices() {
+     public List getChoices() {
         List selections = new ArrayList();
         
-        if (item1 != null) {
-             selections.add(item1);
-        }
-        if (item2 != null) {
-             selections.add(item2);
-        }
-        if (item3 != null) {
-             selections.add(item3);
-        }
-        if (item4 != null) {
-             selections.add(item4);
-        }
-        if (item5 != null) {
-             selections.add(item5);
-        }
-        if (item6 != null) {
-             selections.add(item6);
-        }
+            //Remove nulls from List
+            for(Object item : allItems){
+                if(item != null)
+                 selections.add((String)item);
+            }
+                    
         return selections;
     }
     

@@ -1,7 +1,7 @@
 <%-- 
     Document   : result
     Created on : Sep 2, 2012, 1:29:27 PM
-    Author     : Kevin
+    Author     : Kevin Nangle
 --%>
 
 <%@page import="java.util.Iterator"%>
@@ -15,7 +15,7 @@
     </head>
     <body>
     <h1 align="center">Your dining selections:</h1>
-    <p>
+    <p style="margin-left:700px;">
 
     <%
         List items = (List)request.getAttribute("choices");
@@ -24,8 +24,8 @@
             out.print("<br/>" + it.next());
         }
     %>
-    
-    <p><a href="orderForm.html">Back
+    </p>
+    <p style="margin-left:700px;"><a href="orderForm.html">Back</p>
     
     </body>
 </html>
