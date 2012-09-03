@@ -7,7 +7,6 @@ package edu.wctc.distjava.controller;
 import edu.wctc.distjava.model.OrderConfirmation;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.ArrayList;
 import java.util.List;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -21,41 +20,55 @@ import javax.servlet.http.HttpServletResponse;
  */
 public class FoodSelectionController extends HttpServlet {
     private static final String RESULT_PAGE = "result.jsp";
+
+    /**
+     * Processes requests for both HTTP
+     * <code>GET</code> and
+     * <code>POST</code> methods.
+     *
+     * @param request servlet request
+     * @param response servlet response
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException if an I/O error occurs
+     */
     
         public void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
-
-            String one = request.getParameter("item1");
-            String two = request.getParameter("item2");
-            String three = request.getParameter("item3");
-            String four = request.getParameter("item4");
-            String five = request.getParameter("item5");
-            String six = request.getParameter("item6");
-            
-        ArrayList<String> selections = new ArrayList<String>();
+//        try {
+            out.println("You selected:<br/>");
+            String one = request.getParameter("choice1");
+            String two = request.getParameter("choice2");
+            String three = request.getParameter("choice3");
+            String four = request.getParameter("choice4");
+            String five = request.getParameter("choice5");
+            String six = request.getParameter("choice6");
+            out.println(one);
+            out.println(two);
+            out.println(three);
+            out.println(four);
+            out.println(five);
+            out.println(six);
         
-             selections.add(one);
-             selections.add(two);
-             selections.add(three);
-             selections.add(four);
-             selections.add(five);
-             selections.add(six);
+        // Create a new instance of a model object
+        // For some applications, we would not want to create a new one each time.
+        OrderConfirmation oc = new OrderConfirmation(one, two, three, four, five, six);
+        // Always a good idea to trim and/or validate input data
+        List result = oc.getChoices();
+
+        // Parameters are read only Request object properties, but attributes
+        // are read/write. We can use attributes to store data for use on
+        // another page.
+        request.setAttribute("choices", result);
         
-             out.println(one);
-             
-             for (String item : selections){
-                out.println(item);}
+        // This object lets you forward both the request and response
+        // objects to a destination page
+        RequestDispatcher view =
+                request.getRequestDispatcher(RESULT_PAGE);
+        view.forward(request, response);
+    
 
-//       OrderConfirmation oc = new OrderConfirmation(selections);
-//       ArrayList<String> result = oc.getChoices();
-
-//        request.setAttribute("choices", selections);
-//
-//        RequestDispatcher view =
-//                request.getRequestDispatcher(RESULT_PAGE);
-//        view.forward(request, response);
 
         }
 }
