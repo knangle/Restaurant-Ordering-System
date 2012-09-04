@@ -4,34 +4,101 @@
     <head>
         <title>Order Form (HTML)</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        
+        <script type="text/javascript">
+            
+            var adviceArray =
+                ["Chase that with a bottle of Boone's Farm.",
+                "Goes great with an ice cold Budweiser.",
+                "Nothin' could be finer",
+                "Finger lickin' good.",
+                "Don't ferget the gravy.",
+                "Always served hot and black - just like our coffee.",
+                "&nbsp;"];
+            
+            var tipArray =
+                ["tip1",
+                "tip2",
+                "tip3",
+                "tip4",
+                "tip5",
+                "tip6"];
+            
+            var tipStatus =
+                [0,
+                 0,
+                 0,
+                 0,
+                 0,
+                 0,];
+            
+            var tip1Status = 0;
+            var tip2Status = 0;
+            var tip3Status = 0;
+            var tip4Status = 0;
+            var tip5Status = 0;
+            var tip6Status = 0;
+
+        function tipFunction(messageNum)
+        {
+            var message = adviceArray[messageNum];
+            var tip = tipArray[messageNum];
+            var status = tipStatus[messageNum]
+            
+            if(status==0){
+            document.getElementById(tip).innerHTML = message;
+            tipStatus[messageNum] = 1
+            }
+            else {
+                document.getElementById(tip).innerHTML = adviceArray[6];
+                tipStatus[messageNum] = 0
+            }
+        }
+        </script>
     </head>
     <body>
         
         <h1 align="center">Order up a mess of dee-licious vittles here (and 
             don't ferget the "gravy", it's free!).</h1>
-        <div style="margin-left:600px;">
-            
-         
-            
+        
+        <div id="spacer" style="height:200px;width:600px;float:left;"> </div>
+        
+        <div id="menu" style="height:200px;width:240px;float:left;">   
+     
         <form id="form1" name="form1" method="POST" action="SelectFood.do">
-        <input type="checkbox" name="item1" value="Spaghetti 
-               Bolongnaise" /> Spaghetti Bolongnaise<br />
-        <input type="checkbox" name="item2" value="Mystery Stew" /> 
+            
+        <input type="checkbox" style="height:16px; align:top" name="item1" 
+               value="Spaghetti Bolongnaise" onclick="tipFunction(0)"/> 
+                Spaghetti Bolongnaise<br />
+        <input type="checkbox" style="height:16px;" name="item2" 
+               value="Mystery Stew" onclick="tipFunction(1)" /> 
                 Mystery Stew<br />
-        <input type="checkbox" name="item3" value="Chicken 
-               Confusadore" /> Chicken Confusadore<br />
-        <input type="checkbox" name="item4" value="Not Yer 
-               Granny's Meatloaf" /> Not Yer Granny's Meatloaf<br />
-        <input type="checkbox" name="item5" value="Key Lime Pie" /> 
-                Key Lime Pie<br/>
-        <input type="checkbox" name="item6" value="Bucket of 
-               'Gravy'" /> 
+        <input type="checkbox" style="height:16px;" name="item3" value="Chicken 
+               Confusadore" onclick="tipFunction(2)" /> 
+                Chicken Confusadore<br />
+        <input type="checkbox" style="height:16px;" name="item4" value="Not Yer 
+               Granny's Meatloaf" onclick="tipFunction(3)"/> 
+                Not Yer Granny's Meatloaf<br />
+        <input type="checkbox" style="height:16px;" name="item5" 
+               value="Key Lime Pie" onclick="tipFunction(4)"/>Key Lime Pie<br/>
+        <input type="checkbox" style="height:16px;" name="item6" 
+               value="Bucket of 'Gravy'" onclick="tipFunction(5)"/> 
                 Bucket of 'Gravy'<br/>
                 <br/>
                 <br/>
         <input type="submit" value="Order Vittles" />
-        </form>
-               
+        </form>         
         </div>
+        
+         <div style="height:200px;width:340px;float:left;">
+             <table cellpadding="1">
+                 <tr style="height:12px;"><td id="tip1">&nbsp;</td></tr>
+                 <tr style="height:12px;"><td id="tip2">&nbsp;</td></tr>
+                 <tr style="height:12px;"><td id="tip3">&nbsp;</td></tr>
+                 <tr style="height:12px;"><td id="tip4">&nbsp;</td></tr>
+                 <tr style="height:12px;"><td id="tip5">&nbsp;</td></tr>
+                 <tr style="height:12px;"><td id="tip6">&nbsp;</td></tr>
+             </table>        
+         </div>
     </body>
 </html>
