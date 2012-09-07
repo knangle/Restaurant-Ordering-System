@@ -5,32 +5,7 @@
         <servlet-class>edu.wctc.distjava.controller.FoodSelectionController</servlet-class>
         
         <init-param>
-            <param-name>item1</param-name>
-            <param-value>null</param-value>
-        </init-param>
-        
-        <init-param>
-            <param-name>item2</param-name>
-            <param-value>null</param-value>
-        </init-param>
-        
-        <init-param>
-            <param-name>item3</param-name>
-            <param-value>null</param-value>
-        </init-param>
-        
-        <init-param>
-            <param-name>item4</param-name>
-            <param-value>null</param-value>
-        </init-param>
-        
-        <init-param>
-            <param-name>item5</param-name>
-            <param-value>null</param-value>
-        </init-param>
-        
-        <init-param>
-            <param-name>item6</param-name>
+            <param-name>selections</param-name>
             <param-value>null</param-value>
         </init-param>
 

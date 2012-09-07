@@ -27,33 +27,34 @@ public class FoodSelectionController extends HttpServlet {
     
         public void doPost(HttpServletRequest request, HttpServletResponse 
                             response)
-            throws ServletException, IOException {
+            throws ServletException, IOException, NullPointerException {
         response.setContentType("text/html;charset=UTF-8");
 //        PrintWriter out = response.getWriter();
         
         /**
-         * Create String variables to collect parameters from the View layer.
+         * Create an array of String variables to collect parameters from the 
+         * View layer.
          */
-            String item1 = request.getParameter("item1");
-            String item2 = request.getParameter("item2");
-            String item3 = request.getParameter("item3");
-            String item4 = request.getParameter("item4");
-            String item5 = request.getParameter("item5");
-            String item6 = request.getParameter("item6");
-            
-         /**
-         * Place menu selection variables into a List for transport to the 
-         * Model layer.
-         */  
-            List allItems = new ArrayList();
-            
-            allItems.add(item1);
-            allItems.add(item2);
-            allItems.add(item3);
-            allItems.add(item4);
-            allItems.add(item5);
-            allItems.add(item6);
+            String[] items = request.getParameterValues("selections");
 
+         /**
+         * Place menu selection variables into a Listfor transport to the 
+         * Model layer.
+         */
+            List allItems = new ArrayList();
+            String noSelection = "You didn't select any of our dee-licous "
+                                + "Vittles.";
+
+            try{
+            for(String item: items)
+                if(item != null)
+                    allItems.add(item);
+                else 
+                    allItems.add(noSelection);
+            }
+            catch(NullPointerException n){
+                    allItems.add(noSelection);
+            }
         /**
         * Instantiate the Model layer class and pass the List of menu choices 
         * to the Model layer for processing

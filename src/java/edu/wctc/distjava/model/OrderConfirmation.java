@@ -31,9 +31,9 @@ public class OrderConfirmation {
      public List getChoices() {
         List selections = new ArrayList();
         
-            //Remove nulls from List
+            //Copies selected menu items from Controller layer List into a new 
+            //ArrayList.
             for(Object item : allItems){
-                if(item != null)
                  selections.add((String)item);
             }
                     
