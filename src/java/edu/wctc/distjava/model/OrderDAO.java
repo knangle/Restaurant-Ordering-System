@@ -25,10 +25,10 @@ public class OrderDAO implements IOrderDAO {
     }
     public void writeOrderItemList(List update){
         
-        String sql = "INSERT INTO `ordered_items`.`items` (`menu_items`, `order_number`) VALUES ('Tuna Casserole', '90671')";
+
         
         try{
-        db.writeAllRecords(sql);
+        db.writeRecord("Cake", "22341");
         }
         catch(Exception e){}
 

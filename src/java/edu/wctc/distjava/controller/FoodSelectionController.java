@@ -67,11 +67,12 @@ public class FoodSelectionController extends HttpServlet{
             List result = oc.getChoices();
             
             OrderDBService ODBS = new OrderDBService(allItems);
+            ODBS.writeOrderItemList(result);
            
             /**
             * Send the result set (customer selections from the menu) to the 
             * request object.
-            */         
+            */        
             request.setAttribute("choices", result);
             
             /**

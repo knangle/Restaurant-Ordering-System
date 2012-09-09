@@ -45,6 +45,6 @@ public interface IDBManager {
 
     public void setStmt(Statement stmt);
     
-    public void writeAllRecords (String sql) throws Exception;
+    public void writeRecord (String item, String ordNo) throws Exception;
 
 }

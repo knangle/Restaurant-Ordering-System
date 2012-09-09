@@ -72,12 +72,6 @@ public class MySQL_DB {
 		try {
 			// Next use the connection object created earlier to create a statement object
 			stmt = db.conn.createStatement();
-
-			// Then use the executeQuery() method of the statement object
-			// to execute the read-only query.
-			// Be sure to check all the methods of the statement object in the API.
-			// You would use an updateQuery() method, e.g., to insert or edit records
-//                        stmt.executeUpdate(sqlInsert);
                         
 			rs = stmt.executeQuery(sql);
                         stmt2 = db.conn.createStatement();
