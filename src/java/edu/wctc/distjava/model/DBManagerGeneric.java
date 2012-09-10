@@ -3,6 +3,7 @@ package edu.wctc.distjava.model;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -46,13 +47,17 @@ public class DBManagerGeneric extends AbstractDBManager implements IDBManager {
 		   System.exit( 1 );  // terminate program
 		}
 
-		Statement stmt = null;
-
-                stmt = (getConn().createStatement());
-                stmt.executeUpdate(insertItem);
-
+//		Statement stmt = null;
+//              stmt = (getConn().createStatement());
+//              stmt.executeUpdate(insertItem);                
+                
+                PreparedStatement ps = getConn().prepareStatement("INSERT INTO "
+                        + "`ordered_items`.`items` "
+                + "(`menu_items`, `order_number`) VALUES (?,?)");
+                ps.setString(1, item);
+                ps.setString(2, ordNo);
+                ps.executeUpdate();
 }
-    
     public List<Map> getAllRecords(String sql) throws Exception {
         setConn(DriverManager.getConnection(getUrl(), getUserName(), 
                 getPassword()));

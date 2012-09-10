@@ -1,7 +1,4 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package edu.wctc.distjava.model;
 
 import java.util.ArrayList;
@@ -10,7 +7,7 @@ import java.util.Map;
 
 /**
  *
- * @author Kevin
+ * @author Kevin Nangle
  */
 public class OrderDAO implements IOrderDAO {
     private IDBManager db;
@@ -25,21 +22,21 @@ public class OrderDAO implements IOrderDAO {
     }
     public void writeOrderItemList(List update){
         
-
+            for(Object item : update){
+            
         
-        try{
-        db.writeRecord("Cake", "22341");
-        }
-        catch(Exception e){}
-
+                try{
+                    db.writeRecord((String)item, "11111");
+                }
+                catch(Exception e){}
+            }
     
     }
 
     public List<OrderItem> getOrderItemList() throws Exception {
         OrderItem oi = null;
         List<OrderItem> orderList = new ArrayList<OrderItem>();
-        // Carefull! You don't want a million records to come back!
-        // Use TOP to limit total records returned.
+
         String sql = "SELECT * FROM items LIMIT 0, 1000";
 
         List<Map> rawRecords = db.getAllRecords(sql);
@@ -53,19 +50,3 @@ public class OrderDAO implements IOrderDAO {
         return orderList;
     }
 }
-//  List<Map> rawRecords = db.getAllRecords(sql);
-//        for(Map map : rawRecords) {
-//           emp = new Employee();
-//           emp.setId(Integer.parseInt(map.get("ID").toString()));
-//           emp.setFirstName(map.get("FIRSTNAME").toString());
-//           emp.setLastName(map.get("LASTNAME").toString());
-//           emp.setEmail(map.get("EMAIL").toString());
-//           String sDate = map.get("HIREDATE").toString();
-//           SimpleDateFormat sdf = new SimpleDateFormat("yyyy-mm-dd mm:hh:ss");
-//           Date date = sdf.parse(sDate);
-//           emp.setHireDate(date);
-//           employees.add(emp);
-//        }
-//
-//        return employees;
-//    }

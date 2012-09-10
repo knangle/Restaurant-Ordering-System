@@ -6,8 +6,6 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 
 /**
- * This class provides some convenience methods so that we can reuse some
- * code when creating DBManage implementations.
  *
  * @author Kevin Nangle
  */
@@ -87,9 +85,7 @@ public abstract class AbstractDBManager implements IDBManager {
         this.stmt = stmt;
     }
 
-//
-//    // We'll fake this for now, but you would want to use a real
-//    // properties file and do Depenendency Injection
+
     public void init() throws Exception {
         MySQL_DB cfg = new MySQL_DB();
         driverClassName = cfg.getDriverClassName();

@@ -55,7 +55,6 @@ public class OrderItem implements Comparable {
         return hash;
     }
 
-    // Sort on LastName
     public int compareTo(Object obj) {
         OrderItem oi = (OrderItem)obj;
         return this.getMenuSelection().compareTo(oi.getMenuSelection());
