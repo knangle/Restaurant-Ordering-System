@@ -20,13 +20,15 @@ public class OrderDAO implements IOrderDAO {
         db = new DBManagerGeneric();
         db.init();
     }
-    public void writeOrderItemList(List update){
+    public void writeOrderItemList(List update, int orderNumber){
+        
+        String orderNo = ""+ orderNumber;
         
             for(Object item : update){
             
         
                 try{
-                    db.writeRecord((String)item, "11111");
+                    db.writeRecord((String)item, orderNo);
                 }
                 catch(Exception e){}
             }

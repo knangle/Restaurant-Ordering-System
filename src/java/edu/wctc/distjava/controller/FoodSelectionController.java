@@ -7,6 +7,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.RequestDispatcher;
@@ -23,10 +24,12 @@ import javax.servlet.http.HttpServletResponse;
 * that List back to the View layer.
 *<p>
 * @author Kevin Nangle, knangle@my.wctc.edu
-* @version 2
+* @version 3
 */
 public class FoodSelectionController extends HttpServlet{
     private static final String RESULT_PAGE = "result.jsp";
+    Random randNum = new Random();
+    private int orderNumber = randNum.nextInt(99999) + 10000;
     
         public void doPost(HttpServletRequest request, HttpServletResponse 
                             response)
@@ -36,8 +39,8 @@ public class FoodSelectionController extends HttpServlet{
     //        PrintWriter out = response.getWriter();
             
             /**
-             * Create an array of String variables to collect parameters from the 
-             * View layer.
+             * Create an array of String variables to collect parameters from 
+             * the View layer.
              */
                 String[] items = request.getParameterValues("selections");
 
@@ -66,9 +69,13 @@ public class FoodSelectionController extends HttpServlet{
             OrderConfirmation oc = new OrderConfirmation(allItems);
             List result = oc.getChoices();
             
-            OrderDBService ODBS = new OrderDBService(allItems);
-            ODBS.writeOrderItemList(result);
+            int orderNumber = randNum.nextInt(99999) + 10000;
            
+            OrderDBService ODBS = new OrderDBService(allItems);
+            ODBS.writeOrderItemList(result, orderNumber);
+            
+            orderNumber++;
+            
             /**
             * Send the result set (customer selections from the menu) to the 
             * request object.

@@ -25,8 +25,8 @@ public class OrderDBService {
         return dao.getOrderItemList();
     }
      
-     public void writeOrderItemList(List update) throws Exception {
-        dao.writeOrderItemList(update);
+     public void writeOrderItemList(List update, int orderNumber) throws Exception {
+        dao.writeOrderItemList(update, orderNumber);
     }
 
 }

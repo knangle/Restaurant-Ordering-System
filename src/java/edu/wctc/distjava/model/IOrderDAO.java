@@ -12,5 +12,5 @@ public interface IOrderDAO {
     List<OrderItem> getOrderItemList() throws Exception;
     void init() throws Exception ;
     
-    void writeOrderItemList(List update);
+    void writeOrderItemList(List update, int orderNumber);
 }
