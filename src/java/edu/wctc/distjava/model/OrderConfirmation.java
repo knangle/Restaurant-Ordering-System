@@ -1,6 +1,7 @@
 
 package edu.wctc.distjava.model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,7 +16,7 @@ import java.util.List;
 * @author Kevin Nangle, knangle@my.wctc.edu
 * @version 2
 */
-public class OrderConfirmation {
+public class OrderConfirmation implements Serializable{
     
     private List allItems = new ArrayList(); 
     

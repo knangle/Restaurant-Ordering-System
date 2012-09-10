@@ -10,16 +10,17 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
+        <link rel = "stylesheet" type = "text/css" href = "styles.css"/>
     </head>
     <body>
         <br/>
         <br/>
         
-        <h1 align="center">Welcome to the Rusty Spittoon!</h1>
+        <h1>Welcome to the Rusty Spittoon!</h1>
         
-        <h2 align="center">- Where our famous "secret recipe" gravy (hee, hee) 
+        <h2>- Where our famous "secret recipe" gravy (hee, hee) 
                                 is always free, hot, and plentiful. -</h2>
         
-        <h3 align="center"><a href="orderForm.html">Click here to order</a></h3>
+        <h3><a href="orderForm.html">Click here to order</a></h3>
     </body>
 </html>

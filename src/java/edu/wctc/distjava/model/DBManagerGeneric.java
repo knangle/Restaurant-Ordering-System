@@ -1,6 +1,7 @@
 
 package edu.wctc.distjava.model;
 
+import java.io.Serializable;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -16,7 +17,8 @@ import java.util.Map;
  * 
  * @author Kevin Nangle
  */
-public class DBManagerGeneric extends AbstractDBManager implements IDBManager {
+public class DBManagerGeneric extends AbstractDBManager implements IDBManager, 
+        Serializable {
 
     public DBManagerGeneric() throws Exception {
         super();

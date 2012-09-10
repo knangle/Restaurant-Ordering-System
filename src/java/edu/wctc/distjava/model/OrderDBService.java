@@ -1,13 +1,14 @@
 
 package edu.wctc.distjava.model;
 
+import java.io.Serializable;
 import java.util.List;
 
 /**
  * 
  * @author Kevin Nangle
  */
-public class OrderDBService {
+public class OrderDBService implements Serializable{
     private IOrderDAO dao;
     
     

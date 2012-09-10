@@ -1,6 +1,7 @@
 
 package edu.wctc.distjava.model;
 
+import java.io.Serializable;
 import java.sql.*;
 
 /**
@@ -9,7 +10,7 @@ import java.sql.*;
  */
 
 
-public class MySQL_DB {
+public class MySQL_DB implements Serializable{
         private Connection conn;
 	private String driverClassName = "com.mysql.jdbc.Driver";
 	private String url = "jdbc:mysql://localhost:3306/ordered_items";

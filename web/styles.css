@@ -1,0 +1,18 @@
+/* 
+    Document   : styles
+    Created on : Sep 10, 2012, 5:43:00 PM
+    Author     : Kevin
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+root { 
+    display: block;
+}
+h1	{text-align:center}
+
+h2	{text-align:center}
+
+h3	{text-align:center}
+
+.result {margin-left:700px}

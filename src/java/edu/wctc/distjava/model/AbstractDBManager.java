@@ -1,6 +1,7 @@
 
 package edu.wctc.distjava.model;
 
+import java.io.Serializable;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
@@ -9,7 +10,7 @@ import java.sql.Statement;
  *
  * @author Kevin Nangle
  */
-public abstract class AbstractDBManager implements IDBManager {
+public abstract class AbstractDBManager implements IDBManager, Serializable {
     private String driverClassName;
     private String url;
     private String userName;

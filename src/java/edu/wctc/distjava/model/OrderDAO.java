@@ -1,6 +1,7 @@
 
 package edu.wctc.distjava.model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -9,7 +10,7 @@ import java.util.Map;
  *
  * @author Kevin Nangle
  */
-public class OrderDAO implements IOrderDAO {
+public class OrderDAO implements IOrderDAO, Serializable {
     private IDBManager db;
     private int MAX_RECS = 500;
 

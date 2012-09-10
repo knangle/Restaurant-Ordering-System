@@ -1,11 +1,13 @@
 
 package edu.wctc.distjava.model;
 
+import java.io.Serializable;
+
 /**
  *
  * @author Kevin
  */
-public class OrderItem implements Comparable {
+public class OrderItem implements Comparable, Serializable {
     private int orderID;
     private String menuSelection;
 
